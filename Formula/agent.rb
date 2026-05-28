@@ -1,10 +1,13 @@
 # Homebrew formula TEMPLATE.
 #
-# CI (.github/workflows/linux-agent.yml) substitutes https://github.com/AutoElevate/homebrew-tap/releases/download/linux-agent-v0.0.1/autoelevate-agent-linux-x86_64.tar.gz, 124d41d9bad8069a423220872a80dc0af3e964cc522a7b8a0ddd5b59131ff26b and
-# 0.0.1 on a release tag and pushes the result to the tap repository
+# CI (.github/workflows/linux-agent.yml) fills in the url, sha256 and version
+# fields on a release tag and pushes the result to the tap repository
 # AutoElevate/homebrew-tap as Formula/agent.rb. The release binaries it points
 # at are published to that same repo's GitHub Releases. Do not edit the
 # generated copy in the tap by hand.
+#
+# NB: the placeholder tokens below must appear ONLY on their field lines — the
+# render step does a global sed for them, so keep them out of comments.
 #
 # Install (once the tap exists):
 #   brew install autoelevate/tap/agent
@@ -14,9 +17,9 @@
 class Agent < Formula
   desc "AutoElevate Linux agent - user-requestable temporary admin elevation"
   homepage "https://autoelevate.com"
-  url "https://github.com/AutoElevate/homebrew-tap/releases/download/linux-agent-v0.0.1/autoelevate-agent-linux-x86_64.tar.gz"
-  sha256 "124d41d9bad8069a423220872a80dc0af3e964cc522a7b8a0ddd5b59131ff26b"
-  version "0.0.1"
+  url "https://github.com/AutoElevate/homebrew-tap/releases/download/linux-agent-v0.0.2/autoelevate-agent-linux-x86_64.tar.gz"
+  sha256 "00d73436a07b1101b6950a26d2e17b895e65b7ab4036affc407cc732675b9fb9"
+  version "0.0.2"
   # Proprietary: Homebrew has no SPDX identifier for it.
   license :cannot_represent
 
