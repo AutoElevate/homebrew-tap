@@ -17,9 +17,9 @@
 class AutoelevateAgent < Formula
   desc "AutoElevate Linux agent - user-requestable temporary admin elevation"
   homepage "https://autoelevate.com"
-  url "https://github.com/AutoElevate/homebrew-tap/releases/download/linux-agent-v0.0.31/autoelevate-agent-linux-x86_64.tar.gz"
-  sha256 "7f72e5fc348abe08a6283ac536c9ccaedcfbb37e0d3e54cedb4022114dfd6418"
-  version "0.0.31"
+  url "https://github.com/AutoElevate/homebrew-tap/releases/download/linux-agent-v0.0.32/autoelevate-agent-linux-x86_64.tar.gz"
+  sha256 "998e5bf8f14fada59e9eb9eac6baaad77fcf7c4e658b1cf46796484c19726ae8"
+  version "0.0.32"
   # Proprietary: Homebrew has no SPDX identifier for it.
   license :cannot_represent
 
