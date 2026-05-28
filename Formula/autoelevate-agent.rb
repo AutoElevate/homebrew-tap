@@ -17,9 +17,9 @@
 class AutoelevateAgent < Formula
   desc "AutoElevate Linux agent - user-requestable temporary admin elevation"
   homepage "https://autoelevate.com"
-  url "https://github.com/AutoElevate/homebrew-tap/releases/download/linux-agent-v0.0.32/autoelevate-agent-linux-x86_64.tar.gz"
-  sha256 "998e5bf8f14fada59e9eb9eac6baaad77fcf7c4e658b1cf46796484c19726ae8"
-  version "0.0.32"
+  url "https://github.com/AutoElevate/homebrew-tap/releases/download/linux-agent-v0.0.33/autoelevate-agent-linux-x86_64.tar.gz"
+  sha256 "7279da759ae7c9bc17c0ec7862867b7883d9aba81e8991b11fed89de4014e5f0"
+  version "0.0.33"
   # Proprietary: Homebrew has no SPDX identifier for it.
   license :cannot_represent
 
@@ -28,11 +28,10 @@ class AutoelevateAgent < Formula
   def install
     bin.install "aeagentd"
     bin.install "ae-tray"
-    # Reference copies of the native packaging assets (systemd unit, polkit
-    # policy, .desktop autostart). Homebrew runs as a non-root user so it
-    # cannot place these in /usr/share/polkit-1/actions/, /etc/xdg/autostart/,
-    # or /etc/systemd/system/ itself; the caveats below tell the operator how
-    # to wire them up.
+    # Reference copies of the native packaging assets (systemd unit, .desktop
+    # autostart). Homebrew runs as a non-root user so it cannot place these in
+    # /etc/xdg/autostart/ or /etc/systemd/system/ itself; the caveats below
+    # tell the operator how to wire them up.
     pkgshare.install Dir["packaging/*"]
   end
 
@@ -51,13 +50,9 @@ class AutoelevateAgent < Formula
       required.
 
       Homebrew installs the agent binaries under #{HOMEBREW_PREFIX}/bin but
-      cannot place the polkit action or the tray autostart .desktop into
-      system locations (it runs as your user, not root). To finish the
-      install, run once:
+      cannot place the tray autostart .desktop into a system location (it
+      runs as your user, not root). To finish the install, run once:
 
-        sudo install -m 0644 \\
-          "#{opt_pkgshare}/polkit/com.cyberfox.autoelevate.policy" \\
-          /usr/share/polkit-1/actions/
         sudo install -m 0644 \\
           "#{opt_pkgshare}/xdg-autostart/autoelevate-tray.desktop" \\
           /etc/xdg/autostart/
